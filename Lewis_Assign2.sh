@@ -19,7 +19,8 @@ echo "rm head.txt" >> Lewis_cs.sh
 echo "cut -f 1,2,4 BTS_data.txt > text2.txt" >> Lewis_cs.sh
 
 #modify child script to extract the snakes 10-89 from text.txt, reverse sort by trappability, and add to Lewis_Final.txt file
-echo "for Num in {10..89};do grep 13BTS0$"Num" text2.txt;done | sort -k3r >> Lewis_Final.txt" >> Lewis_cs.sh 
+#in order for the child script to work on my computer, I had to put the  quotes around Num
+echo "for Num in {10..89};do grep 13BTS0$"Num" text2.txt;done | sort -k3gr >> Lewis_Final.txt" >> Lewis_cs.sh 
 
 #remove the text.txt file
 echo "rm text2.txt" >> Lewis_cs.sh
@@ -34,6 +35,7 @@ chmod u+x Lewis_cs.sh
 ./Lewis_cs.sh
 
 #print the first 10 lines of Lewis_Final.txt to the screen
+echo " "
 echo "The first 10 lines of Lewis_Final.txt are:"
 echo " "
 column -t Lewis_Final.txt | head
@@ -42,6 +44,7 @@ column -t Lewis_Final.txt | head
 rm Lewis_cs.sh Lewis_Final.txt
 
 #list the Lewis_Final file
+echo " "
 echo "This is the final assignment 2 project file for Lewis, Cari:";
 echo " "
 ls -lth Lewis_Final.txt.gz
